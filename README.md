@@ -6,13 +6,18 @@
 ## Correr la aplicación 
 * Creen un CodeSpace en la rama main y usen la terminal para instalar las dependencias de la aplicación:
 ```
-npm install
+yarn install
 ```
 Si se ha realizado satisfactoriamente la instalación, deberán ver una carpeta node_modules.
 
 Posteriormente, para correr la aplicación:
 ```
-node app.js
+yarn start
+```
+
+Para correr los tests:
+```
+yarn test
 ```
 
 La aplicación creará el archivo de base de datos "base.sqlite3", y CodeSpace preguntará si desean hacer público el puerto 3000. Respondan que sí.
