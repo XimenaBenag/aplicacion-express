@@ -1,5 +1,5 @@
 const request = require('supertest');
-const { app, db } = require('./index'); // Importamos tu app refactorizada
+const { app, db } = require('./index'); //
 
 describe('API Endpoints', () => {
 
