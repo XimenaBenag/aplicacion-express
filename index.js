@@ -25,21 +25,21 @@ const db = new sqlite3.Database('./base.sqlite3', (err) => {
 
 // --- ENDPOINTS ---
 
-app.post('/insert', jsonParser, function (req, res) {
+app.post('/agrega_todo', jsonParser, function (req, res) {
     const { todo } = req.body;
 
     if (!todo) {
-        return res.status(400).send({ error: 'Falta información necesaria' });
+        return res.status(400).json({ error: 'Falta información necesaria' });
     }
 
     const stmt = db.prepare('INSERT INTO todos (todo, created_at) VALUES (?, CURRENT_TIMESTAMP)');
 
     stmt.run(todo, function(err) {
         if (err) {
-            return res.status(500).send(err);
+            return res.status(500).json({error: err.message});
         }
         // Usamos sendStatus o json para terminar correctamente
-        res.status(201).json({ id: this.lastID, message: 'Insert was successful' });
+        res.status(201).json({ status: 'ok', id: this.lastID});
     });
     stmt.finalize();
 });
